@@ -1,0 +1,5 @@
+python-decouple~=3.8
+python-dotenv~=1.0
+aiogram~=3.20
+cryptography~=43.0
+aiostep~=0.3
