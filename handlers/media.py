@@ -4,6 +4,7 @@ from aiostep import wait_for
 import logging
 import tempfile
 import os
+import glv
 
 # Constants
 ROUTER_NAME = "media-router"
@@ -164,7 +165,7 @@ async def handle_document(message: Message) -> None:
     Args:
         message: The incoming document message
     """
-    bot = Bot.get_current()
+    bot = glv.bot.get_current()
     
     # Check if document is an image file
     if message.document.file_name:
