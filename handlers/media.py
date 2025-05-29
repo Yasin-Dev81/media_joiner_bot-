@@ -4,11 +4,10 @@ from aiostep import wait_for
 import logging
 import tempfile
 import os
-import glv
 
 # Constants
 ROUTER_NAME = "media-router"
-WAIT_TIMEOUT = 600
+WAIT_TIMEOUT = 25
 
 # Messages
 MESSAGES = {
@@ -142,7 +141,7 @@ async def handle_photo(message: Message) -> None:
     Args:
         message: The incoming photo message
     """
-    bot = Bot.get_current()
+    bot = message.bot
     await handle_media_with_caption(message, "photo", bot)
 
 @router.message(F.video)
@@ -153,7 +152,7 @@ async def handle_video(message: Message) -> None:
     Args:
         message: The incoming video message
     """
-    bot = Bot.get_current()
+    bot = message.bot
     await handle_media_with_caption(message, "video", bot)
 
 @router.message(F.document)
@@ -165,7 +164,7 @@ async def handle_document(message: Message) -> None:
     Args:
         message: The incoming document message
     """
-    bot = glv.bot.get_current()
+    bot = message.bot
     
     # Check if document is an image file
     if message.document.file_name:
