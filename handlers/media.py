@@ -7,7 +7,7 @@ import os
 
 # Constants
 ROUTER_NAME = "media-router"
-WAIT_TIMEOUT = 25
+WAIT_TIMEOUT = 600
 
 # Messages
 MESSAGES = {
